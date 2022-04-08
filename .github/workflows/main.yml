@@ -26,6 +26,6 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           REPOSITORY_NAME: heerheer/blog.heerdev.top
-          BRANCH: main
+          BRANCH: gh-pages
           FOLDER: docs
           #注意这里的 public 是仓库根目录下的 public，也就是 npm run build 生成静态资源的路径，比如有的人是 `docs/.vuepress/dist`
