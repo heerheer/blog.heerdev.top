@@ -8,12 +8,12 @@ subtitle: ""
 description: ""
 keywords: 博客 Unity 音游 Vue Node.Js Typescript .Net
 author: 赫尔绝不睡懒觉
-language: en
+language: zh-cn
 timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://blog.heerev.top
+url: https://blog.heerev.top
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -110,4 +110,9 @@ search:
   field: post
   content: true
   format: striptags
+
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: true
 

@@ -6,7 +6,7 @@ base_info:
   author: 白袜♂赫尔
   url: https://blog.heerdev.top/
   # Logo image (You can use local image, image external link or don’t fill)
-  logo_img:
+  logo_img: https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=256
 
 # ---------------------------------------------------------------------------------------
 # Theme style settings
@@ -69,10 +69,10 @@ social_contact:
 menu:
   Home: /
   archives: /archives
-  关于: /about
-  友链: /links
-  分类: /categories
-  标签: /tags
+  About: /about
+  Links: /links
+  Categories: /categories
+  Tag: /tags
   # Links: /links
   # About: /about
   # Changelog: /changelog

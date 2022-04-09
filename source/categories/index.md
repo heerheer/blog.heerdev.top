@@ -1,4 +1,4 @@
 ---
-title: Hello World
-type: category-list
+title: categories
+type: categories
 ---
