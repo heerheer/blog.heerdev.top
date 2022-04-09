@@ -113,6 +113,12 @@ search:
 
 # MathJax Support
 mathjax:
+  tags: none # or 'ams' or 'all'
+  single_dollars: true # enable single dollar signs as in-line math delimiters
+  cjk_width: 0.9 # relative CJK char width
+  normal_width: 0.6 # relative normal (monospace) width
   enable: true
-  per_page: true
+  every_page: false
+  append_css: true
+  extension_options: {}
 

@@ -34,3 +34,4 @@ BPM时间值通常有两种形式
 转换就是把BPM时间转为Tick
 
 $ \frac{BPM时间}{BPM}\times 60 \times 设定帧率 $
+
