@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,7 +22,7 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"blog.heerev.top","root":"/","language":"en","path":"search.json"};
+    KEEP.hexo_config = {"hostname":"blog.heerev.top","root":"/","language":"zh-cn","path":"search.json"};
     KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=512","favicon":"https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=256","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"这是只属于我们的道路，这是不被世人铭记的过往"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
@@ -48,6 +48,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=256">
+                </a>
             
             <a class="logo-title" href="/">
                 赫尔的博客
@@ -78,7 +82,7 @@
                             <a class="active"
                                href="/about"
                             >
-                                关于
+                                ABOUT
                             </a>
                         </li>
                     
@@ -86,7 +90,7 @@
                             <a class=""
                                href="/links"
                             >
-                                友链
+                                LINKS
                             </a>
                         </li>
                     
@@ -94,7 +98,7 @@
                             <a class=""
                                href="/categories"
                             >
-                                分类
+                                CATEGORIES
                             </a>
                         </li>
                     
@@ -102,7 +106,7 @@
                             <a class=""
                                href="/tags"
                             >
-                                标签
+                                TAG
                             </a>
                         </li>
                     
@@ -139,22 +143,22 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class="active"
-                       href="/about">关于</a>
+                       href="/about">ABOUT</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/links">友链</a>
+                       href="/links">LINKS</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/categories">分类</a>
+                       href="/categories">CATEGORIES</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/tags">标签</a>
+                       href="/tags">TAG</a>
                 </li>
             
         </ul>
@@ -178,7 +182,11 @@
         
         <div class="page-template-content markdown-body">
             
-                <h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><p>不知道写什么…就这样(<br>二次元都喜欢说话跟一个括号是吧(<br>hhh</p>
+                <h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><h3 id="中二版"><a href="#中二版" class="headerlink" title="中二版"></a>中二版</h3><p>你不需要知道我是谁，问题的意义在于提出问题本身，而不是答案。因此，不如尝试谛听内心的余声，你会彻悟我的真名。</p>
+<h3 id="正常"><a href="#正常" class="headerlink" title="正常"></a>正常</h3><p>INFP人格，日常EMO</p>
+<p>菜菜音游人,某些Bot的作者,因为一句话就去学西班牙语的屑,海龟汤狂热玩家+创作者(?,坚定的TypeScript拥护者,最爱Vite+Vue3。<br>崩坏3玩家，相信编剧一定睡不着。</p>
+<p>无锡人，所以最喜欢的东西的甜食？</p>
+<h3 id="混沌"><a href="#混沌" class="headerlink" title="混沌"></a>混沌</h3><p>我是谁不重要，无论我是否告诉你了真相，结局已然无法扭转，不如来享受这最后一杯美酒，欣赏破碎之前最后的风景吧。</p>
 
             
         </div>
@@ -337,5 +345,20 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
