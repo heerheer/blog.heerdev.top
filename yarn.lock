@@ -365,6 +365,13 @@ decode-uri-component@^0.2.0:
   resolved "https://mirrors.cloud.tencent.com/npm/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
+deep-assign@^2.0.0:
+  version "2.0.0"
+  resolved "http://mirrors.cloud.tencent.com/npm/deep-assign/-/deep-assign-2.0.0.tgz#ebe06b1f07f08dae597620e3dd1622f371a1c572"
+  integrity sha1-6+BrHwfwja5ZdiDj3RYi83GhxXI=
+  dependencies:
+    is-obj "^1.0.0"
+
 deep-is@~0.1.3:
   version "0.1.4"
   resolved "https://mirrors.cloud.tencent.com/npm/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
@@ -629,6 +636,13 @@ hexo-filter-mathjax@^0.8.0:
   dependencies:
     mathjax-full "3.2.0"
 
+hexo-filter-mermaid-diagrams@^1.0.5:
+  version "1.0.5"
+  resolved "https://mirrors.cloud.tencent.com/npm/hexo-filter-mermaid-diagrams/-/hexo-filter-mermaid-diagrams-1.0.5.tgz#1e32fc4e46eab90cf3a375b5c830a9f2aef1640f"
+  integrity sha512-/IkIMKn4V7PBAzMJGNDPSoBFlv1JGvIELXm5AWkR8N5N44kDTNJLtabb4h095UhZQIXOrF9zA1WYhi6wrWLW5Q==
+  dependencies:
+    deep-assign "^2.0.0"
+
 hexo-front-matter@^2.0.0:
   version "2.0.0"
   resolved "https://mirrors.cloud.tencent.com/npm/hexo-front-matter/-/hexo-front-matter-2.0.0.tgz#03f39a9eedb16c5448dbb3bec7dff2c4e224006c"
@@ -739,11 +753,6 @@ hexo-server@^3.0.0:
     open "^8.0.9"
     picocolors "^1.0.0"
     serve-static "^1.14.1"
-
-hexo-theme-keep@^3.4.5:
-  version "3.4.5"
-  resolved "https://mirrors.cloud.tencent.com/npm/hexo-theme-keep/-/hexo-theme-keep-3.4.5.tgz#01637e4cb1a2180ff4f081416c3c3a594e02079d"
-  integrity sha512-oJ3PUV7dvkIKaCIrxGmDbnesm+sMR0y9F2pwS6Tcen5gz8pJNEhtYHEZEPovw8ct7RAxE+pgYaFfXZGI2bnFbQ==
 
 hexo-theme-landscape@^0.0.3:
   version "0.0.3"
@@ -898,6 +907,11 @@ is-number@^7.0.0:
   version "7.0.0"
   resolved "https://mirrors.cloud.tencent.com/npm/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
   integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
+
+is-obj@^1.0.0:
+  version "1.0.1"
+  resolved "http://mirrors.cloud.tencent.com/npm/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
+  integrity sha1-PkcprB9f3gJc19g6iW2rn09n2w8=
 
 is-plain-object@^3.0.0:
   version "3.0.1"

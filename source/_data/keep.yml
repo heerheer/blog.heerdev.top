@@ -2,7 +2,7 @@
 # ---------------------------------------------------------------------------------------
 #  Your basic info
 base_info:
-  title: 赫尔的博客
+  title: 赫尔的「真我」
   author: 白袜♂赫尔
   url: https://blog.heerdev.top/
   # Logo image (You can use local image, image external link or don’t fill)
@@ -68,11 +68,11 @@ social_contact:
 # ---------------------------------------------------------------------------------------
 menu:
   Home: /
-  archives: /archives
   About: /about
-  Links: /links
+  Roadmap: /roadmap
   Categories: /categories
   Tag: /tags
+  Links: /links
   # Links: /links
   # About: /about
   # Changelog: /changelog
@@ -119,7 +119,7 @@ code_copy:
 # Table of Contents in the Sidebar
 # ---------------------------------------------------------------------------------------
 toc:
-  enable: false
+  enable: true
 
   # Automatically add list number to toc.
   number: false
@@ -161,15 +161,15 @@ local_search:
 # Comment plugin
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false
+  enable: true
   use: valine # values: valine | gitalk | twikoo
 
   # Valine
   # See: https://github.com/xCss/Valine
   valine:
-    appid: # your leancloud application appid
-    appkey: # your leancloud application appkey
-    placeholder: # your placeholder
+    appid: ye44kBGgUccfgtoyi4emcKjV-gzGzoHsz # your leancloud application appid
+    appkey: lH27O8up7RvVM8JQIJkTOByz # your leancloud application appkey
+    placeholder: 你也和「她」一样，对语言的力量深信不疑吗。 # your placeholder
 
   # Gitalk
   # See: https://github.com/gitalk/gitalk
@@ -215,7 +215,7 @@ pjax:
 # Footer settings
 # ---------------------------------------------------------------------------------------
 footer:
-  since: 2020 # the starting year of your website, Can be null
+  since: 2022 # the starting year of your website, Can be null
   icp: # ICP record number of your website, Can be null
   upyun: # url
 
@@ -223,3 +223,9 @@ footer:
 # Keep version (Please don't modify)
 # ---------------------------------------------------------------------------------------
 version: 3.4.5
+
+mermaid: ## mermaid url https://github.com/knsv/mermaid
+  enable: true  # default true
+  version: "7.1.2" # default v7.1.2
+
+
