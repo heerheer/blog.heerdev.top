@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="博客 Unity 音游 Vue Node.Js Typescript .Net">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="白袜♂赫尔">
+    
+    <title>
+        
+            使用Microsoft Graph，操作ToDo任务清单。 |
+        
+        赫尔的「真我」
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=256">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"blog.heerev.top","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=512","favicon":"https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=256","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"这是只属于我们的道路，这是不被世人铭记的过往"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=256">
+                </a>
+            
+            <a class="logo-title" href="/">
+                赫尔的「真我」
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/roadmap"
+                            >
+                                路线图
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/roadmap">路线图</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">使用Microsoft Graph，操作ToDo任务清单。</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://cravatar.cn/avatar/5e7c297eba7b576ff8aeff9c6c706fb5?s=512">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">白袜♂赫尔</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-27 18:11:55</span>
+        <span class="mobile">2022-04-27 18:11</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>[TOC]</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>教程目的是本人的频道BOT——RuaRuaBot 的原理基础。<br>关于获取用户MicrosoftTodoApi以便提醒用户相关计划。</p>
+<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><ul>
+<li>RUARUABOT企划!</li>
+<li>RuaRuaBot-Node:使用频道机器人+云开发系列教程</li>
+</ul>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="开发环境与框架准备"><a href="#开发环境与框架准备" class="headerlink" title="开发环境与框架准备"></a>开发环境与框架准备</h2><p>你需要准备好下面的东西。</p>
+<ul>
+<li>koa / koa-router</li>
+<li>Node.Js</li>
+<li>TypeScript</li>
+<li>ts-node</li>
+<li>msal-node</li>
+</ul>
+<p>当然，你也可以准备这些东西</p>
+<ul>
+<li>WebStorm 希望是正版哦</li>
+<li>一个能放音游曲的播放器。</li>
+<li>qq-guild-bot 来做一个频道bot！</li>
+</ul>
+<h2 id="注册Azure-Ad应用"><a href="#注册Azure-Ad应用" class="headerlink" title="注册Azure Ad应用"></a>注册Azure Ad应用</h2><ol>
+<li>添加一个应用</li>
+<li>增加一个密钥并复制。</li>
+</ol>
+<h2 id="引入相关包"><a href="#引入相关包" class="headerlink" title="引入相关包"></a>引入相关包</h2><h3 id="msal"><a href="#msal" class="headerlink" title="msal"></a>msal</h3><blockquote>
+<p>MSAL Node enables applications to authenticate users using Azure AD</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> msal <span class="keyword">from</span> <span class="string">&quot;@azure/msal-node&quot;</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>其他koa，qq-guild-bot相关使用方法不多说了。</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="修改AzureAD应用权限"><a href="#修改AzureAD应用权限" class="headerlink" title="修改AzureAD应用权限"></a>修改AzureAD应用权限</h2><h3 id="修改受支持的帐户类型"><a href="#修改受支持的帐户类型" class="headerlink" title="修改受支持的帐户类型"></a>修改受支持的帐户类型</h3><p>进入清单页面<br>修改清单文件下面的属性。</p>
+<blockquote>
+<p>鉴于受支持功能的暂时性差异，建议不要为现有应用程序注册启用个人 Microsoft 帐户。如需启用个人帐户，可使用清单编辑器。 </p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;signInAudience&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AzureADandPersonalMicrosoftAccount&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>AzureADMyOrg：仅应用已注册的组织目录中的帐户（单租户）。</li>
+<li>AzureADMultipleOrgs：任何组织目录中的帐户（多租户）。</li>
+<li>AzureADandPersonalMicrosoftAccount：任何组织目录（多租户）中的帐户和个人 Microsoft 帐户（例如，Skype、Xbox 和 Outlook.com）。</li>
+</ul>
+<p>同时<br>accessTokenAcceptedVersion要改为2(测试版API)</p>
+<h3 id="修改回调地址"><a href="#修改回调地址" class="headerlink" title="修改回调地址"></a>修改回调地址</h3><p>对这个应用添加回调地址，包括<code>https://localhost:3000/auth</code><br>在上线后，传递的重定向url改变后，需要包含在这里的列表中。</p>
+<h2 id="构建一个ConfidentialClientApplication"><a href="#构建一个ConfidentialClientApplication" class="headerlink" title="构建一个ConfidentialClientApplication"></a>构建一个ConfidentialClientApplication</h2><p><code>ConfidentialClientApplication</code>用来生成用于授权验证的用户登入URL。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> msalClient = <span class="keyword">new</span> msal.<span class="title class_">ConfidentialClientApplication</span>(&#123;</span><br><span class="line">    <span class="attr">auth</span>: &#123;</span><br><span class="line">        <span class="attr">clientId</span>: <span class="string">&quot;xxxx&quot;</span>,</span><br><span class="line">        <span class="attr">clientSecret</span>: <span class="string">&quot;xxxxxxxxs&quot;</span>,</span><br><span class="line">        <span class="attr">authority</span>: <span class="string">&quot;https://login.microsoftonline.com/common/&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">system</span>: &#123;</span><br><span class="line">        <span class="attr">loggerOptions</span>: &#123;</span><br><span class="line">            <span class="attr">piiLoggingEnabled</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">logLevel</span>: msal.<span class="property">LogLevel</span>.<span class="property">Warning</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建获取AccessToken相关的登入路由"><a href="#创建获取AccessToken相关的登入路由" class="headerlink" title="创建获取AccessToken相关的登入路由"></a>创建获取AccessToken相关的登入路由</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">code</span>: <span class="built_in">string</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">token</span>: <span class="built_in">string</span> = <span class="string">&#x27;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">get</span>(<span class="string">&quot;/login&quot;</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    ctx.<span class="property">body</span> = <span class="string">&quot;准备跳转中...&quot;</span></span><br><span class="line">    <span class="keyword">let</span> url = <span class="keyword">await</span> msalClient.<span class="title function_">getAuthCodeUrl</span>(&#123;</span><br><span class="line">        <span class="attr">redirectUri</span>: <span class="string">&quot;http://localhost:3000/auth&quot;</span>,</span><br><span class="line">        <span class="attr">scopes</span>: [<span class="string">&#x27;user.read&#x27;</span>, <span class="string">&#x27;Tasks.Read&#x27;</span>, <span class="string">&#x27;Tasks.ReadWrite&#x27;</span>, <span class="string">&#x27;Tasks.Read.Shared&#x27;</span>, <span class="string">&#x27;Tasks.ReadWrite.Shared&#x27;</span>],</span><br><span class="line">    &#125;);</span><br><span class="line">    ctx.<span class="title function_">redirect</span>(url)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">get</span>(<span class="string">&quot;/auth&quot;</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    code = ctx.<span class="property">query</span>.<span class="property">code</span> <span class="keyword">as</span> <span class="built_in">string</span>;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="keyword">await</span> msalClient.<span class="title function_">acquireTokenByCode</span>(&#123;</span><br><span class="line">        <span class="attr">code</span>: code,</span><br><span class="line">        <span class="attr">redirectUri</span>: <span class="string">&#x27;http://localhost:3000/auth&#x27;</span>,</span><br><span class="line">        <span class="attr">scopes</span>: [<span class="string">&#x27;user.read&#x27;</span>, <span class="string">&#x27;Tasks.Read&#x27;</span>, <span class="string">&#x27;Tasks.ReadWrite&#x27;</span>, <span class="string">&#x27;Tasks.Read.Shared&#x27;</span>, <span class="string">&#x27;Tasks.ReadWrite.Shared&#x27;</span>],</span><br><span class="line">    &#125;)</span><br><span class="line">    ctx.<span class="property">body</span> = <span class="string">&quot;获取token中...&quot;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;access: &quot;</span> + url!.<span class="property">accessToken</span>)</span><br><span class="line">    token = url!.<span class="property">accessToken</span>;</span><br><span class="line">    ctx.<span class="property">body</span> = <span class="string">&quot;完成!可以关闭了&quot;</span></span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>对于<code>scopes</code>中的权限，请查看<a class="link"   target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/graph/permissions-reference?view=graph-rest-1.0" >官方文档<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="编写API操作类"><a href="#编写API操作类" class="headerlink" title="编写API操作类"></a>编写API操作类</h2><p>我们先以TaskList为列<br><a class="link"   target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/graph/api/todo-list-lists?view=graph-rest-1.0" >https://docs.microsoft.com/zh-cn/graph/api/todo-list-lists?view=graph-rest-1.0<i class="fas fa-external-link-alt"></i></a></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios, &#123;<span class="title class_">AxiosInstance</span>&#125; <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">TaskApiUtil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">axios</span>: <span class="title class_">AxiosInstance</span>;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">accessToken: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">axios</span> = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">            <span class="attr">baseURL</span>: <span class="string">&#x27;https://graph.microsoft.com/v1.0&#x27;</span>,</span><br><span class="line">            <span class="attr">headers</span>: &#123;</span><br><span class="line">                <span class="title class_">Authorization</span>: <span class="string">&quot;Bearer &quot;</span> + accessToken</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">getLists</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">axios</span>.<span class="title function_">get</span>(<span class="string">&quot;/me/todo/lists&quot;</span>)).<span class="property">data</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编写获取列表路由"><a href="#编写获取列表路由" class="headerlink" title="编写获取列表路由"></a>编写获取列表路由</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">get</span>(<span class="string">&quot;/task/list&quot;</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> u = <span class="keyword">new</span> <span class="title class_">TaskApiUtil</span>(token)</span><br><span class="line">    ctx.<span class="property">body</span> = <span class="keyword">await</span> u.<span class="title function_">getLists</span>()</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>没问题了。</p>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>至于如何运用到Bot中，请等待后续教程。</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/27/mark/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Mark一些Github仓库</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/27/%E8%B5%9B%E9%A9%ACBot%E5%8F%8A%E9%99%84%E5%B1%9E%E4%BA%A7%E5%93%81/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">赛马Bot与其附属平台</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'ye44kBGgUccfgtoyi4emcKjV-gzGzoHsz',
+                    appKey: 'lH27O8up7RvVM8JQIJkTOByz',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '你也和「她」一样，对语言的力量深信不疑吗。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = '白袜♂赫尔';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    
+        <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">白袜♂赫尔</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E9%80%81%E9%97%A8"><span class="nav-text">传送门</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8E%E6%A1%86%E6%9E%B6%E5%87%86%E5%A4%87"><span class="nav-text">开发环境与框架准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CAzure-Ad%E5%BA%94%E7%94%A8"><span class="nav-text">注册Azure Ad应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E5%8C%85"><span class="nav-text">引入相关包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#msal"><span class="nav-text">msal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B"><span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9AzureAD%E5%BA%94%E7%94%A8%E6%9D%83%E9%99%90"><span class="nav-text">修改AzureAD应用权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8F%97%E6%94%AF%E6%8C%81%E7%9A%84%E5%B8%90%E6%88%B7%E7%B1%BB%E5%9E%8B"><span class="nav-text">修改受支持的帐户类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%9B%9E%E8%B0%83%E5%9C%B0%E5%9D%80"><span class="nav-text">修改回调地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AAConfidentialClientApplication"><span class="nav-text">构建一个ConfidentialClientApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%8E%B7%E5%8F%96AccessToken%E7%9B%B8%E5%85%B3%E7%9A%84%E7%99%BB%E5%85%A5%E8%B7%AF%E7%94%B1"><span class="nav-text">创建获取AccessToken相关的登入路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99API%E6%93%8D%E4%BD%9C%E7%B1%BB"><span class="nav-text">编写API操作类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%8E%B7%E5%8F%96%E5%88%97%E8%A1%A8%E8%B7%AF%E7%94%B1"><span class="nav-text">编写获取列表路由</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD"><span class="nav-text">后续</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
