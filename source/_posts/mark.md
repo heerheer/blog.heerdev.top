@@ -36,6 +36,8 @@ https://github.com/geekxh/hello-beginner
 **Mall-Cook** https://github.com/wangyuan389/mall-cook
 > 基于 vue 开发的可视化商城搭建平台
 
+**Yao** https://github.com/YaoApp/yao
+> Yao 是一款支持快速创建 Web 服务和管理后台的开源低代码应用引擎。
 # 开源库
 
 ## 音频
