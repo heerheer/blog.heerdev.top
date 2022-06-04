@@ -122,3 +122,5 @@ mathjax:
   append_css: true
   extension_options: {}
 
+plugins:
+  - hexo-reference
