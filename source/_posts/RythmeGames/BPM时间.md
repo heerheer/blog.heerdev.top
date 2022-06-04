@@ -1,5 +1,6 @@
 ---
 title: BPM时间、游戏Tick、刷新帧以及正常时间。
+date: 2022-04-12 20:00:00
 categories:
 - 音游开发日志
 tags: [音游]
