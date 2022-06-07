@@ -124,3 +124,6 @@ mathjax:
 
 plugins:
   - hexo-reference
+
+toc:
+  maxDepth: 3
